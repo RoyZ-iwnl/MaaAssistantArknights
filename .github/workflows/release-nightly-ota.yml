@@ -26,7 +26,6 @@ on:
 
 jobs:
   build-win-nightly:
-    if: github.repository_owner == 'MaaAssistantArknights'
     runs-on: windows-latest
     strategy:
       matrix:
@@ -71,16 +70,6 @@ jobs:
 
           # Check for changes between the latest tag and HEAD
           $recent_changes = git log "$latest_tag..HEAD" --oneline
-
-          if (-not $recent_changes) {
-            Write-Output "No commits. Cancelling workflow..."
-            Write-Output "cancel_run=true" >> $env:GITHUB_ENV
-            exit 0
-          } else {
-            Write-Output "Recent commits: $recent_changes"
-            Write-Output "Commits found. Continuing build..."
-            Write-Output "cancel_run=false" >> $env:GITHUB_ENV
-          }
 
           # Get the full description of the current commit
           $described = git describe --tags --long --match 'v*'
