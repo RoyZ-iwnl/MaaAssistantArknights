@@ -52,7 +52,6 @@
                 Stretch="Uniform" />
         </Border>
 
-        <StackPanel HorizontalAlignment="Center" Visibility="{c:Binding IsDebugVersion}">
             <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
                 <Button
                     Margin="5"
@@ -63,6 +62,5 @@
                     Command="{s:Action LockAll}"
                     Content="Lock All" />
             </StackPanel>
-        </StackPanel>
     </StackPanel>
 </UserControl>
